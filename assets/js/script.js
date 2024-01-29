@@ -28,14 +28,14 @@ $("#search-button").on("click", function(event) {
             cityEl.attr("id", "city");
             
               const cityName = data.city.name;
-              const date = (data.list[2].dt + data.city.timezone) * 1000;
+              const date = (data.list[0].dt + data.city.timezone) * 1000;
               var dateFormat = (dayjs(date).format("DD/MM/YYYY"))
               var headerEl = $("<h3>");
 
               headerEl.text(`${cityName} (${dateFormat})`);
               headerEl.attr("id", "city-header");
 
-              const iconKey = data.list[2].weather[0].icon;
+              const iconKey = data.list[0].weather[0].icon;
               const weatherIcon = `http://openweathermap.org/img/w/${iconKey}.png`;
               var iconEl = $("<img>")
 
@@ -49,19 +49,19 @@ $("#search-button").on("click", function(event) {
             var weatherEl = $("<section>");
 
               var tempEl = $("<p>");
-              const temperature = data.list[2].main.temp - 273.15;
+              const temperature = data.list[0].main.temp - 273.15;
 
               tempEl.text(`Temp: ${Math.floor(temperature)}°C`);
               tempEl.addClass("temp");
               
               var humidityEl = $("<p>");
-              const humidity = data.list[2].main.humidity;
+              const humidity = data.list[0].main.humidity;
 
               humidityEl.text(`Humidity: 💧${humidity}%`);
               humidityEl.addClass("humidity");
               
               var windEl = $("<p>");
-              const windSpeed = data.list[2].wind.speed
+              const windSpeed = data.list[0].wind.speed
               
               windEl.text(`Wind: ${windSpeed}km/h`)
               windEl.addClass("wind-speed")
