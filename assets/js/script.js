@@ -8,15 +8,15 @@ const geoQuery = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit
 fetch(geoQuery)
   .then(function(geoRes) {
     return geoRes.json()
-  }).then(function(geoData) {
-    var lat = geoData[0].lat;
-    var lon = geoData[0].lon;
+  }).then(function(geo) {
+    var lat = geo[0].lat;
+    var lon = geo[0].lon;
     const weatherQuery = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     
     fetch(weatherQuery)
-      .then(function(weatherRes) {
-        return weatherRes.json()
-      }).then(function(weatherData) {
-        console.log(weatherData)
+      .then(function(res) {
+        return res.json()
+      }).then(function(data) {
+        console.log(data)
       })
   })
