@@ -3,7 +3,7 @@ $("#search-button").on("click", function(event) {
 
   const geoLimit = 1;
   var search = $("#search-input").val();
-  if (search === "") {search += "London"};
+  if (search === "") {search += $("#search-input").attr("placeholder")};
   const apiKey = "7acd9fd35411ccb740fad8f5750d8c5d";
   const geoQuery = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
   
