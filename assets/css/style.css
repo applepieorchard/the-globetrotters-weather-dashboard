@@ -48,3 +48,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.day-forecast {
+  background-color: #431024;
+  padding: 10px;
+  border-radius: 5%;
+}
