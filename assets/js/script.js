@@ -6,6 +6,13 @@ $("#search-button").on("click", function(event) {
   if (search === "") {search += $("#search-input").attr("placeholder")};
   const apiKey = "7acd9fd35411ccb740fad8f5750d8c5d";
   const geoQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
+
+  var history = $("<button>")
+  history.addClass("search-history")
+  history.addClass("btn")
+  history.addClass("btn-info")
+  history.text(search)
+  $("#history").prepend(history)
   
   fetch(geoQuery)
     .then(function(geoRes) {
