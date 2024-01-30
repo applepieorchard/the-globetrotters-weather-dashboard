@@ -1,5 +1,5 @@
 $("#search-button").on("click", function(event) {
-  event.preventDefault()
+  event.preventDefault();
 
   const geoLimit = 1;
   var search = $("#search-input").val();
@@ -7,13 +7,14 @@ $("#search-button").on("click", function(event) {
   const apiKey = "7acd9fd35411ccb740fad8f5750d8c5d";
   const geoQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
 
-  var history = $("<button>")
-  history.addClass("search-history")
-  history.addClass("btn")
-  history.addClass("btn-info")
-  history.text(search)
-  $("#history").prepend(history)
+  var history = $("<button>");
+  history.addClass("search-history");
+  history.addClass("btn");
+  history.addClass("btn-info");
+  history.text(search);
+  $("#history").prepend(history);
   
+  function fetchWeather() {
   fetch(geoQuery)
     .then(function(geoRes) {
       return geoRes.json()
@@ -42,7 +43,7 @@ $("#search-button").on("click", function(event) {
             // Weather Icon
               var iconKey = data.list[0].weather[0].icon;
               var weatherIcon = `https://openweathermap.org/img/w/${iconKey}.png`;
-              var iconEl = $("<img>")
+              var iconEl = $("<img>");
 
               iconEl.attr("src", weatherIcon);
               iconEl.attr("alt", "Weather Icon");
@@ -65,10 +66,10 @@ $("#search-button").on("click", function(event) {
               humidityEl.addClass("humidity");
             // Wind Speed
               var windEl = $("<p>");
-              const windSpeed = data.list[0].wind.speed
+              const windSpeed = data.list[0].wind.speed;
               
-              windEl.text(`Wind: ${windSpeed}km/h`)
-              windEl.addClass("wind-speed")
+              windEl.text(`Wind: ${windSpeed}km/h`);
+              windEl.addClass("wind-speed");
             //
             weatherEl.append(tempEl);
             weatherEl.append(humidityEl);
@@ -77,11 +78,11 @@ $("#search-button").on("click", function(event) {
           todayEl.append(cityEl);
           todayEl.append(weatherEl);
           // Five Day Forecast 
-            var forecastEl = $("#forecast")
-            forecastEl.empty()
+            var forecastEl = $("#forecast");
+            forecastEl.empty();
 
-            var fiveDayEl = $("<section>")
-            fiveDayEl.attr("id", "five-day")
+            var fiveDayEl = $("<section>");
+            fiveDayEl.attr("id", "five-day");
 
             // Forecast Arrays
               const forecastDate = [
@@ -90,42 +91,42 @@ $("#search-button").on("click", function(event) {
                 (data.list[24].dt + data.city.timezone) * 1000,
                 (data.list[32].dt + data.city.timezone) * 1000,
                 (data.list[39].dt + data.city.timezone) * 1000
-              ]
+              ];
               const forecastTemp = [
                 data.list[8].main.temp - 273.15,
                 data.list[16].main.temp - 273.15,
                 data.list[24].main.temp - 273.15,
                 data.list[32].main.temp - 273.15,
                 data.list[39].main.temp - 273.15
-              ]
+              ];
               const forecastIconKeys = [
                 data.list[8].weather[0].icon,
                 data.list[16].weather[0].icon,
                 data.list[24].weather[0].icon,
                 data.list[32].weather[0].icon,
                 data.list[39].weather[0].icon,
-              ]
+              ];
               const forecastHumidity = [
                 data.list[8].main.humidity,
                 data.list[16].main.humidity,
                 data.list[24].main.humidity,
                 data.list[32].main.humidity,
                 data.list[39].main.humidity
-              ]
+              ];
               const forecastWindSpeed = [
                 data.list[8].wind.speed,
                 data.list[16].wind.speed,
                 data.list[24].wind.speed,
                 data.list[32].wind.speed,
                 data.list[39].wind.speed
-              ]
+              ];
               const dayIDs = [
                 "tomorrow",
                 "twoDays",
                 "threeDays",
                 "fourDays",
                 "fiveDays"
-              ]
+              ];
             // Tomorrow's Forecast
             function fiveDayForecast(dayEl, dayID, dateEl, date, iconEl, icon, keys, tempEl,
               temp, humidEl, humidity, windEl, windSpeed, dayAppend, castAppend, i) {
@@ -170,4 +171,10 @@ $("#search-button").on("click", function(event) {
               fifthTempEl, forecastTemp, fifthHumidEl, forecastHumidity, fifthWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 4)
           })
     })
+  };
+  fetchWeather();
+  history.on("click", function(event) {
+    event.preventDefault();
+    fetchWeather()
+  })
 })
