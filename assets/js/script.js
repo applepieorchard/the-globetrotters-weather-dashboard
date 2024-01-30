@@ -5,8 +5,8 @@ $("#search-button").on("click", function(event) {
   var search = $("#search-input").val();
   if (search === "") {search += $("#search-input").attr("placeholder")};
   const apiKey = "7acd9fd35411ccb740fad8f5750d8c5d";
-  const geoQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
-
+  var geoQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
+  
   var history = $("<button>");
   history.addClass("search-history");
   history.addClass("btn");
@@ -27,7 +27,6 @@ $("#search-button").on("click", function(event) {
         .then(function(res) {
           return res.json()
         }).then(function(data) {
-          console.log(data);
           // Today's Forecast 
             var todayEl = $("#today");
             todayEl.empty();
@@ -173,8 +172,18 @@ $("#search-button").on("click", function(event) {
     })
   };
   fetchWeather();
-  history.on("click", function(event) {
+  $(".search-history").on("click", function(event) {
     event.preventDefault();
+    search = $(this).text()
+    geoQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=${geoLimit}&appid=${apiKey}`;
     fetchWeather()
-  })
+  });
+  localStorage.setItem("buttons", $("#history").html())
+})
+$("#history").html(localStorage.getItem("buttons"))
+
+$("#clear-button").on("click", function(event) {
+  event.preventDefault()
+  $("#history").empty()
+  localStorage.setItem("buttons", $("#history").html())
 })
