@@ -1,12 +1,50 @@
+header {
+  background-color: #431024;
+  color: #F2F3F5;
+}
+
+body {
+  background-color: #313338;
+  color: #F2F3F5;
+}
+
+.search-button {
+  background-color: #e0279d;
+  border-color: #e0279d;
+}
+
+.search-button:hover {
+  background-color: #BC1864;
+  border-color: #BC1864;
+}
+
+#clear-button {
+  background-color: #4A0B5A;
+  border-color: #4A0B5A;
+}
+
+#clear-button:hover {
+  background-color: #563C5C;
+  border-color: #563C5C;
+}
+
+.search-history {
+  margin-bottom: 5px;
+  background-color: #D5A18E;
+  border-color: #D5A18E;
+}
+
+.search-history:hover {
+  background-color: #A57D6F;
+  border-color: #A57D6F;
+}
+
 #city {
   display: flex;
   align-items: center;
 }
 
-.search-history {
-  margin-bottom: 5px;
+#five-day {
+  display: flex;
+  justify-content: space-between;
 }
-
-/* .search-button {
-
-} */
