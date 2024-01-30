@@ -83,6 +83,9 @@ $("#search-button").on("click", function(event) {
             var fiveDayEl = $("<section>");
             fiveDayEl.attr("id", "five-day");
 
+            var forecastHeader = $("<h3>")
+            forecastHeader.text("5 Day Forecast:")
+
             // Forecast Arrays
               const forecastDate = [
                 (data.list[8].dt + data.city.timezone) * 1000,
@@ -159,15 +162,16 @@ $("#search-button").on("click", function(event) {
                 castAppend.append(dayAppend)
             };
             fiveDayForecast(firstDayEl, dayIDs, firstDateEl, forecastDate, firstIconEl, firstIcon, forecastIconKeys,
-              firstTempEl, forecastTemp, firstHumidEl, forecastHumidity, firstWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 0)
+              firstTempEl, forecastTemp, firstHumidEl, forecastHumidity, firstWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 0);
             fiveDayForecast(secondDayEl, dayIDs, secondDateEl, forecastDate, secondIconEl, secondIcon, forecastIconKeys, 
-              secondTempEl, forecastTemp, secondHumidEl, forecastHumidity, secondWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 1)
+              secondTempEl, forecastTemp, secondHumidEl, forecastHumidity, secondWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 1);
             fiveDayForecast(thirdDayEl, dayIDs, thirdDateEl, forecastDate, thirdIconEl, thirdIcon, forecastIconKeys,
-              thirdTempEl, forecastTemp, thirdHumidEl, forecastHumidity, thirdWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 2)
+              thirdTempEl, forecastTemp, thirdHumidEl, forecastHumidity, thirdWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 2);
             fiveDayForecast(fourthDayEl, dayIDs, fourthDateEl, forecastDate, fourthIconEl, fourthIcon, forecastIconKeys,
-              fourthTempEl, forecastTemp, fourthHumidEl, forecastHumidity, fourthWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 3)
+              fourthTempEl, forecastTemp, fourthHumidEl, forecastHumidity, fourthWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 3);
             fiveDayForecast(fifthDayEl, dayIDs, fifthDateEl, forecastDate, fifthIconEl, fifthIcon, forecastIconKeys,
-              fifthTempEl, forecastTemp, fifthHumidEl, forecastHumidity, fifthWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 4)
+              fifthTempEl, forecastTemp, fifthHumidEl, forecastHumidity, fifthWindEl, forecastWindSpeed, fiveDayEl, forecastEl, 4);
+            forecastEl.prepend(forecastHeader)
           })
     })
   };
