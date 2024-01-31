@@ -16,7 +16,7 @@ N/A
 
 ## Usage
 
-Search for a city if you wish to narrow down the city to a specific country you will need to use [ISO Country Codes](https://www.iso.org/obp/ui/#search) to do so. For example you could search for `Paris, FR` or if you wish to search for American cities you will also need to add the state code, such as if you search `New Orleans, LA, US`. You can simply search for cities on their own but you may not get the city or you looking for. You can then use the weather data at your discretion. If your search history is too full you may click the clear button to delete it.
+Search for a city if you wish to narrow down the city to a specific country you will need to use [ISO Country Codes](https://www.iso.org/obp/ui/#search) to do so. For example you could search for `Paris, FR` or if you wish to search for American cities you will also need to add the state code, such as if you search `New Orleans, LA, US`. You can simply search for cities on their own but you may not get the city or you looking for. You can then use the weather data at your discretion. If your search history is too full you may click the clear button to delete it. If you leave the field blank the placeholder `London` will be used.
 
 ## Credits
 
