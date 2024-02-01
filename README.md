@@ -1,4 +1,4 @@
-# Weather Dashboard
+# The Globetrotter's Weather Dashboard
 ## Description
 
 This weather dashboard can be used to search for 3 hour and 5 day forecasts around the world. The 3 hour or "today's" forecast will give you the weather up to three hours from the time you are using the application. While the 5 day forecast will give you five forecasts each roughly 24 hours apart from today's forecast. You search will be saved as a button which will allow you to view the weather information in that location again.
