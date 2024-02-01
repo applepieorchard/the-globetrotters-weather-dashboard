@@ -8,7 +8,7 @@ Throughout this project I have learned how to make use of APIs to fetch and disp
 ### The Dashboard
 ![Screenshot of the Weather Dashboard](./assets/images/dashboardScreenshot.png)
 
-This application can be found on [Github Pages](https://applepieorchard.github.io/weather-dashboard/)
+This application can be found on [Github Pages](https://applepieorchard.github.io/the-globetrotters-weather-dashboard/)
 
 ## Installation
 
