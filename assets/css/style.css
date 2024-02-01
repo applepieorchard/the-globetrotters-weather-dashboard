@@ -1,3 +1,4 @@
+/* Page Styles */
 header {
   background-color: #431024;
   color: #F2F3F5;
@@ -8,6 +9,7 @@ body {
   color: #F2F3F5;
 }
 
+/* Button Styles */
 .search-button {
   background-color: #e0279d;
   border-color: #e0279d;
@@ -38,6 +40,8 @@ body {
   background-color: #A57D6F;
   border-color: #A57D6F;
 }
+
+/* Appended Weather Container Styles */
 
 #city {
   display: flex;
